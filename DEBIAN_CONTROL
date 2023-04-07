@@ -1,0 +1,5 @@
+Package: libjson
+Version: 1.0
+Architecture: amd64
+Maintainer: Aarav Malani <aarav.malani@gmail.com>
+Description: A light-weight feature complete JSON parser

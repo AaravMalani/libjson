@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.20)
+project(libjson C)
+enable_language(C)
+set(SOURCE_DIR src)
+set(SOURCES src/json.c)
+set(CMAKE_C_STANDARD, 11)
+add_library(json STATIC ${SOURCES})
+add_library(json_so SHARED ${SOURCES})
+
+set_target_properties(json_so PROPERTIES OUTPUT_NAME json)
+set_target_properties(json PROPERTIES C_STANDARD 11)
+set_target_properties(json_so PROPERTIES C_STANDARD 11)
+install(DIRECTORY include DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(TARGETS json json_so DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+if (UNIX AND NOT DO_NOT_LDCONFIG)
+install(CODE "execute_process(COMMAND ldconfig)")
+endif()
+

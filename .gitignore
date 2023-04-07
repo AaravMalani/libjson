@@ -1,0 +1,4 @@
+build/
+*.rpm
+*.deb
+.vscode
