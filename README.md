@@ -42,10 +42,10 @@ cd ..
 
 int main(int argc, char** argv){
     JSONElement* element = parseJSON("{\"a\":\"b\"}", NULL); // The second argument is for inner recursed calls and can therefore be NULL
-    printf("%s\n", (char*) getElement(element, "a")->data); 
+    printf("%s\n", (char*) getElement(element, "a")->data); // Get inner element (char* for objects and uint64_t for arrays)
     freeJSONElement(element);
     element = parseJSON("{\"a\":[1.0, -1.4]}", NULL);
-    printf("%s\n", (char*) getElement(element, 2, "a", 0)->data); 
+    printf("%s\n", (char*) getElements(element, 2, "a", 0)->data); // C equivalent of element["a"][0] (first argument is root element, second argument is number of indices and third argument onwards are the indices)
     freeJSONElement(element);
     
     return 0;
