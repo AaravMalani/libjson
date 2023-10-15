@@ -52,4 +52,4 @@ int main(int argc, char** argv){
 }
 ```
 For all the different types, look at `include/json.h`
-
+A documentation of the library can be found [here](./docs/docs)
